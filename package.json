@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "sass": "sass ./sass:./assets/css/base.css --watch",
+        "sass-c": "sass ./sass:./assets/css/base.css --watch --style compressed"
+    }
+}

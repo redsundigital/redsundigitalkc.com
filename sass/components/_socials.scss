@@ -1,0 +1,83 @@
+.socials, .game {
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: center;
+
+    i {
+        width: 64px;
+        height: 64px;
+        color: $textLightDarker;
+        font-size: 2rem;
+        text-align: center;
+        transition: 0.2s filter;
+        filter: blur(1px);
+        text-shadow: 0 0 8px #000;
+
+        &:hover {
+            color: $textLight;
+            cursor: pointer;
+            filter: blur(0.5px);
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.66);
+        }
+    }
+}
+
+.socials {
+    right: 0;
+    bottom: 0;
+    display: flex;
+
+    i { 
+        transform: skew(-10deg);
+    }
+
+    i:hover {
+        font-size: 2.5rem;
+        transform: scale(1.2) skew(-4deg);
+    }
+}
+
+.game {
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    color: $light;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    i {
+        width: 64px;
+        height: 64px;
+        color: #222;
+        font-size: 2rem;
+        text-align: center;
+        transition: 0.2s filter;
+        color: $textLight;
+        font-size: 3.5rem;
+        transform: skew(10deg);
+        filter: blur(1px);
+
+        &:hover {
+            width: 64px;
+            height: 64px;
+            color: #eee;
+            cursor: pointer;
+            transform: scale(1.5) skew(4deg);
+            filter: blur(0.5px);
+        }
+    }
+}

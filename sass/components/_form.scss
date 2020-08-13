@@ -1,0 +1,96 @@
+form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .form-group {
+        position: relative;
+        width: 100%;
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+
+        // Row mode
+        &.row { flex-direction: row; }
+
+        &:hover {
+            input, textarea {
+                background: transparentize($color: $light, $amount: 0.8);
+                filter: blur(1px);
+            }
+        }
+    }
+
+    input,
+    label,
+    textarea {
+        padding: 1rem;
+        color: $light;
+        font-family: 'VCR', Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        filter: blur(1.5px);
+
+        &:focus {
+            filter: blur(1px);
+            border-color: $light;
+        }
+    }
+
+    input,
+    textarea {
+        border: none;
+        border-bottom: 1px solid $light;
+        background: none;
+        outline: none;
+
+        &:focus {
+            background: transparentize($color: $light, $amount: 0.8);
+        }
+    }
+
+    label {
+        text-transform: uppercase;
+    }
+
+    // Checkbox custom
+    .checkbox {
+        display: flex;
+        flex: 1;
+
+        input {
+            flex: 1;
+            max-width: 40px;
+            height: 40px;
+            margin: auto 0;
+
+            &:hover {
+                background: red;
+            }
+        }
+
+        label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    button {
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        bottom: 0;
+    }
+
+    @include phone {
+        .form-group {
+            margin: 0.5rem 0;
+        }
+
+        input,
+        label,
+        textarea {
+            font-size: 1.25rem;
+        }
+    }
+}

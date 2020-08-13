@@ -1,0 +1,13 @@
+.filler-text {
+    position: absolute;
+    top: -2rem;
+    left: 6rem;
+    color: $light;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 12rem;
+    font-weight: 900;
+    z-index: 99;
+    opacity: 0.33;
+    filter: blur(4px);
+    pointer-events: none;
+}

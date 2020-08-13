@@ -1,0 +1,22 @@
+$accent: #ea004e;  //red; // Was using #ce1313 which is closer to firebrick, seemed to be too dark
+$accentDark: #ea004e; //firebrick;
+$accentDarker: #ea004e; //rgb(190, 0, 0);
+
+$textShadowPrimary: rgba(204, 25, 25, 0.5);
+$textShadowSecondary: rgba(255,0,80,0.3);
+
+$textLight: #eee;
+$textLightDarker: #ccc;
+$textLightTransparent: rgba($textLight, 0.2);
+
+$textDark: #333;
+
+$cursorColor: $textLightDarker;
+
+// NEW :: USE THESE
+$dark: #151515;
+$light: #eee;
+$accent: #ea004e; //ea004e
+
+// Form colors
+$formControlDark: #333;
