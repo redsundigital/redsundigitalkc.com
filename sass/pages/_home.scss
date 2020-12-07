@@ -75,7 +75,7 @@ $blurAmt: 1px;
       }
 
       @include phone {
-        font-size: 10vw;
+        font-size: 1vw;
         filter: drop-shadow(4px 4px 8px $accent) blur(0.25px);
       }
     }
