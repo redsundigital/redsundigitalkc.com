@@ -112,11 +112,4 @@ $blurAmt: 1px;
       }
     }
   }
-
-  .socials,
-  .game {
-    @include phone {
-      display: none;
-    }
-  }
 }

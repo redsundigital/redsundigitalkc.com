@@ -8,7 +8,6 @@ const nav = document.querySelector('.nav');
 const navlinks = document.querySelectorAll('.nav a');
 const fillerBlocks = document.querySelectorAll('.background-block');
 const sun = document.getElementById('sun');
-const ship = document.getElementById('ship');
 
 // Sections
 const home = document.getElementById('home');
@@ -98,27 +97,28 @@ function removeActiveClass(querySelector) {
 // ----------------------------------------------------------------------------------------------------------------------
 
 // Navtoggle
-const navscreen = document.getElementById('navscreen');
-const navtoggle = document.getElementById('navtoggle');
+const menu = document.getElementById('menu');
+const navtoggle = document.getElementById('menu-button');
 const navtoggleIcon = navtoggle.childNodes[0];
 navtoggle.addEventListener('click', function () {
-  if (navscreen.classList.contains('active')) {
-    navscreen.classList.remove('active');
+  if (menu.classList.contains('active')) {
+    menu.classList.remove('active');
     navtoggleIcon.classList.replace('fa-times', 'fa-eject');
-    navscreen.style.opacity = 0;
+    menu.style.opacity = 0;
   } else {
-    navscreen.classList.add('active');
+    menu.classList.add('active');
     navtoggleIcon.classList.replace('fa-eject', 'fa-times');
-    navscreen.style.opacity = 1;
+    menu.style.opacity = 1;
   }
 });
+navtoggle.click(); //TODO: remove
 
-const navscreenLinks = document.querySelectorAll('.navscreen-link');
+const navscreenLinks = document.querySelectorAll('.menu-item');
 navscreenLinks.forEach((nsl) => {
   nsl.addEventListener('click', () => {
-    navscreen.classList.remove('active');
+    menu.classList.remove('active');
     navtoggleIcon.classList.replace('fa-times', 'fa-eject');
-    navscreen.style.opacity = 0;
+    menu.style.opacity = 0;
   });
 });
 
@@ -141,14 +141,6 @@ let oldScroll = 0;
 document.addEventListener('scroll', function (e) {
   const scroll = window.scrollY;
   sun.style.top = 'calc(10% - ' + scroll * 0.07 + 'px)';
-  ship.style.top = 'calc(15% + ' + scroll * 0.2 + 'px)';
-
-  const scrollingDown = scroll > oldScroll;
-  if (scrollingDown) {
-    ship.style.transform = 'rotate(0) scale(' + 0.5 + ')';
-  } else {
-    ship.style.transform = 'rotate(180deg) scale(' + 0.5 + ')';
-  }
 
   const vh = getViewportHeight();
   if (scroll + 100 > vh) {

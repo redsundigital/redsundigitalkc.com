@@ -75,3 +75,7 @@
     filter: blur(1px);
   }
 }
+
+.glow {
+  filter: drop-shadow(3px 3px 6px #888) blur($glowBlur);
+}

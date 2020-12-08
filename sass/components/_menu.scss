@@ -1,0 +1,88 @@
+#menu {
+  opacity: 0; // Default to hidden
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  background: $dark;
+  transition: opacity 0.33s;
+  pointer-events: none;
+  overflow: hidden;
+
+  &.active {
+    pointer-events: all;
+  }
+
+  .menu-items {
+    @extend .flex-center;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .menu-item {
+    @extend .glow;
+    margin: 1rem auto;
+    color: #aaa;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'VCR', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: attr(data-glitch);
+      width: 100%;
+      height: 100%;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    &:hover {
+      color: #fff;
+      transform: scale(1.1) !important;
+      filter: blur(1px);
+      cursor: pointer;
+    }
+
+    &:hover::before {
+      color: cyan;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    }
+
+    &:hover::after {
+      color: fuchsia;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+        infinite;
+    }
+
+    &.active {
+      color: #fff;
+    }
+  }
+
+  .socials {
+    @extend .glow;
+    position: fixed;
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+
+    i {
+      margin: 0 1rem;
+      color: #aaa;
+      font-size: 2.5rem;
+    }
+  }
+}
