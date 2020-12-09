@@ -35,9 +35,9 @@
 
 .typewriter {
   overflow: hidden;
-  border-right: 0.15em solid $cursorColor;
+  border-right: 0.15em solid $light;
   white-space: nowrap;
-  animation: typing 1.25s steps(23, end) 1.5s forwards,
+  animation: typing 0.75s steps(28, end) 1s forwards,
     blink-caret 0.75s step-end infinite;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .crt-blur {
-  filter: blur(2px);
+  filter: blur($filterBlur);
 
   .white {
     color: #fff;
@@ -72,6 +72,6 @@
     opacity: 0.4;
     animation: rotate 120s linear infinite;
     transform: translate(-50%, -50%);
-    filter: blur(1px);
+    filter: blur($filterBlur);
   }
 }

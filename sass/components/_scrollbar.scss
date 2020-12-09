@@ -1,19 +1,19 @@
-/* Width */
+// Width
 ::-webkit-scrollbar {
-    width: 1rem;
+  width: 1rem;
 }
 
-/* Track */
+// Track
 ::-webkit-scrollbar-track {
-    background: #222;
+  background: #222;
 }
 
-/* Handle */
+// Handle
 ::-webkit-scrollbar-thumb {
-background: $accentDark;
+  background: $accent;
 }
 
-/* Handle on hover */
+// Handle:hover
 ::-webkit-scrollbar-thumb:hover {
-    background: $accent;
+  background: $accent;
 }

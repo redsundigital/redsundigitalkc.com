@@ -105,11 +105,11 @@ navtoggle.addEventListener('click', function () {
   if (navscreen.classList.contains('active')) {
     navscreen.classList.remove('active');
     navtoggleIcon.classList.replace('fa-times', 'fa-eject');
-    navscreen.style.opacity = 0;
+    // navscreen.style.opacity = 0;
   } else {
     navscreen.classList.add('active');
     navtoggleIcon.classList.replace('fa-eject', 'fa-times');
-    navscreen.style.opacity = 1;
+    // navscreen.style.opacity = 1;
   }
 });
 
@@ -118,7 +118,7 @@ navscreenLinks.forEach((nsl) => {
   nsl.addEventListener('click', () => {
     navscreen.classList.remove('active');
     navtoggleIcon.classList.replace('fa-times', 'fa-eject');
-    navscreen.style.opacity = 0;
+    // navscreen.style.opacity = 0;
   });
 });
 

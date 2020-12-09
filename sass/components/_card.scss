@@ -1,0 +1,32 @@
+.card {
+  @extend .crt-blur;
+  max-width: 300px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: $light;
+  font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+
+  .card-title {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  }
+
+  .card-image {
+    text-align: center;
+
+    img {
+      width: 200px;
+      padding: 30px 60px;
+      opacity: 0.75;
+    }
+  }
+
+  .card-body {
+    font-size: 1.75rem;
+    text-align: center;
+    opacity: 0.75;
+  }
+}
