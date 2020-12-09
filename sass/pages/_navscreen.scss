@@ -9,7 +9,7 @@
   flex-direction: column;
   background: $dark;
   z-index: 100;
-  transition: opacity 0.4s, height 0.4s;
+  transition: opacity 0.33s, height 0.33s ease-in-out;
   pointer-events: none;
 
   &.active {
