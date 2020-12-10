@@ -29,11 +29,16 @@
 
     @include media(desktop) {
       margin: 0;
+      border: none;
+
+      &:hover {
+        border: none;
+      }
     }
   }
 
   figure:hover .figure-overlay {
-    opacity: 0.92;
+    opacity: 0.98;
     width: 100%;
     background: $accent;
     color: $light;
@@ -130,6 +135,10 @@
     @include media(desktop) {
       font-size: 0.66em;
     }
+
+    @include media(desktop-lg) {
+      font-size: 0.55em;
+    }
   }
   figure .figure-overlay a {
     color: $accent;
@@ -161,6 +170,10 @@
     @include media(desktop) {
       font-size: 0.66rem;
     }
+
+    @include media(desktop-lg) {
+      font-size: 0.55rem;
+    }
   }
 
   .block {
@@ -191,6 +204,10 @@
       @include media(desktop) {
         text-align: left;
         font-size: 1em;
+      }
+
+      @include media(desktop-lg) {
+        font-size: 0.75em;
       }
     }
   }

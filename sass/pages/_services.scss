@@ -21,5 +21,9 @@
       flex-direction: row;
       align-items: flex-start;
     }
+
+    @include media(desktop-lg) {
+      margin: 0;
+    }
   }
 }

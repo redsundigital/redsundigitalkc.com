@@ -33,7 +33,15 @@ section {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  // overflow: hidden;
+
+  &:not(:first-of-type) {
+    margin: 200px auto;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   @include media(desktop) {
     max-width: 80vw;
