@@ -2,20 +2,21 @@
   @extend .crt-blur;
   background-color: $dark;
 
-  @include for-phone-only {
-    margin: 3rem auto;
-  }
-
   h1 {
     color: $light;
-    text-align: left;
+    font-size: 8em;
+    text-align: center;
+
+    @include media(desktop) {
+      text-align: left;
+    }
   }
 
   figure {
     position: relative;
 
-    @include for-phone-only {
-      margin: 1rem auto;
+    @include media(mobile) {
+      margin: 16px auto;
       display: flex;
       flex-direction: column-reverse;
       border: 2px solid transparent;
@@ -25,16 +26,20 @@
         border: 2px solid $accent;
       }
     }
+
+    @include media(desktop) {
+      margin: 0;
+    }
   }
 
   figure:hover .figure-overlay {
-    opacity: 0.98;
-    width: 50%;
+    opacity: 0.92;
+    width: 100%;
     background: $accent;
     color: $light;
 
-    @include for-phone-only {
-      width: 100%;
+    @include media(desktop) {
+      width: 50%;
     }
   }
   figure:hover .figure-overlay a,
@@ -47,7 +52,7 @@
   figure:hover .figure-overlay p {
     color: $light;
   }
-  @media screen and (min-width: 1100px) {
+  @media screen and (min-width: 960px) {
     figure:hover .figure-overlay {
       width: 250px;
     }
@@ -57,9 +62,6 @@
   }
   figure:hover .figure-img {
     filter: saturate(1);
-
-    @include for-phone-only {
-    }
   }
   figure .figure-img {
     display: block;
@@ -71,14 +73,19 @@
     filter: saturate(0);
     transition: 0.5s;
 
-    @include for-phone-only {
+    @include media(mobile) {
       max-height: 150px;
       object-fit: contain;
+    }
+
+    @include media(desktop) {
+      max-height: 500px;
+      object-fit: cover;
     }
   }
   figure .figure-overlay {
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     width: 100%;
@@ -91,22 +98,38 @@
     opacity: 1;
     transition: all $hoverTransition;
 
-    @include for-phone-only {
-      position: relative;
+    @include media(desktop) {
+      position: absolute;
     }
   }
   figure .figure-overlay h3 {
     color: $light;
     flex: 0.25;
     margin-bottom: 10px;
-    font-size: 2rem;
+    font-size: 4em;
     transition: 0.25s;
+
+    @include media(tablet) {
+      font-size: 3em;
+    }
+
+    @include media(desktop) {
+      font-size: 1em;
+    }
   }
   figure .figure-overlay p {
     flex: 0.25;
     color: #777;
-    font-size: 1.2rem;
+    font-size: 2.5em;
     font-weight: 400;
+
+    @include media(tablet) {
+      font-size: 1.75em;
+    }
+
+    @include media(desktop) {
+      font-size: 0.66em;
+    }
   }
   figure .figure-overlay a {
     color: $accent;
@@ -122,7 +145,6 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 1.2rem;
   }
   figure .figure-overlay .overlay-links li {
     margin: 0 10px 0 0;
@@ -130,6 +152,15 @@
   figure .figure-overlay .overlay-links a {
     // color: transparent;
     transition: color 0.35s;
+    font-size: 2.5rem;
+
+    @include media(tablet) {
+      font-size: 1.75rem;
+    }
+
+    @include media(desktop) {
+      font-size: 0.66rem;
+    }
   }
 
   .block {
@@ -137,7 +168,6 @@
     background-color: $gray;
     color: $light;
     font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
   }
   .block .block-link {
     color: $accent;
@@ -148,11 +178,39 @@
   }
   .block1 {
     position: relative;
+
+    p {
+      margin-top: 16px;
+      font-size: 3.5em;
+      text-align: center;
+
+      @include media(tablet) {
+        font-size: 2em;
+      }
+
+      @include media(desktop) {
+        text-align: left;
+        font-size: 1em;
+      }
+    }
   }
   @media screen and (min-width: 1100px) {
     .block1 {
       grid-column: span 2;
       grid-row: span 2;
+    }
+  }
+
+  .block2 h3,
+  .block2 p {
+    font-size: 3rem;
+    text-align: right;
+
+    @include media(tablet) {
+      font-size: 2em;
+    }
+    @include media(desktop) {
+      font-size: 1em;
     }
   }
   .block2 p {

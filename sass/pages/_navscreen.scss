@@ -1,26 +1,26 @@
 #navscreen {
-  // opacity: 0; // default closed
+  @extend .flex-center;
   position: fixed;
   width: 100vw;
   height: 0;
-  overflow: hidden;
   top: 0;
   left: 0;
+  z-index: 100;
   flex-direction: column;
   background: $dark;
-  z-index: 100;
   transition: opacity 0.33s, height 0.33s ease-in-out;
   pointer-events: none;
+  overflow: hidden;
 
   &.active {
-    pointer-events: all;
     height: 100%;
+    pointer-events: all;
   }
 
   .navscreen-link {
-    margin: 1rem;
+    margin: 16px;
     color: $light;
-    font-size: 2rem;
+    font-size: 4em;
     font-weight: bold;
     font-family: 'VCR', Arial, Helvetica, sans-serif;
     text-decoration: none;
@@ -31,6 +31,14 @@
         3px 3px 6px transparentize($color: $light, $amount: 0.5)
       )
       blur($filterBlur + 0.5px);
+
+    @include media(tablet) {
+      font-size: 2.25em;
+    }
+
+    @include media(desktop) {
+      font-size: 1.2em;
+    }
 
     &::before,
     &::after {
@@ -83,7 +91,11 @@
     }
 
     i {
-      font-size: 2.5rem;
+      font-size: 1.25em;
+
+      // @include media(tablet) {
+      //   font-size: 0.85em;
+      // }
     }
   }
 }
