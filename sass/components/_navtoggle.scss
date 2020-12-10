@@ -13,10 +13,6 @@
     opacity: 0.75;
   }
 
-  @include phone {
-    display: block;
-  }
-
   i {
     @extend .flex-center;
     width: 100%;

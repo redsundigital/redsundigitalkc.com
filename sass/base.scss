@@ -28,12 +28,12 @@ section {
   padding: 3rem;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
-  @include phone {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 2rem;
-    overflow-x: hidden;
+  @include for-phone-only {
+    width: 100vw; // prevent scroll x
+    max-width: 100vw; // prevent scroll x
+    padding: 1rem;
   }
 
   &::before {
@@ -57,11 +57,23 @@ h1 {
   font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
   font-size: 8rem;
   font-weight: 400;
+  text-align: left;
   text-transform: uppercase;
+
+  @include for-phone-only {
+    font-size: 5rem;
+    text-align: center;
+  }
 }
 
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hidden-on-phone {
+  @include for-phone-only {
+    display: none;
+  }
 }

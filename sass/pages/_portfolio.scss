@@ -2,14 +2,29 @@
   @extend .crt-blur;
   background-color: $dark;
 
+  @include for-phone-only {
+    margin: 3rem auto;
+  }
+
   h1 {
-    font-size: 8rem;
-    text-transform: uppercase;
     color: $light;
+    text-align: left;
   }
 
   figure {
     position: relative;
+
+    @include for-phone-only {
+      margin: 1rem auto;
+      display: flex;
+      flex-direction: column-reverse;
+      border: 2px solid transparent;
+      transition: border $hoverTransition;
+
+      &:hover {
+        border: 2px solid $accent;
+      }
+    }
   }
 
   figure:hover .figure-overlay {
@@ -17,6 +32,10 @@
     width: 50%;
     background: $accent;
     color: $light;
+
+    @include for-phone-only {
+      width: 100%;
+    }
   }
   figure:hover .figure-overlay a,
   figure:hover .figure-overlay h3 {
@@ -38,6 +57,9 @@
   }
   figure:hover .figure-img {
     filter: saturate(1);
+
+    @include for-phone-only {
+    }
   }
   figure .figure-img {
     display: block;
@@ -48,6 +70,11 @@
     object-fit: cover;
     filter: saturate(0);
     transition: 0.5s;
+
+    @include for-phone-only {
+      max-height: 150px;
+      object-fit: contain;
+    }
   }
   figure .figure-overlay {
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
@@ -63,6 +90,10 @@
     background: rgba(0, 0, 0, 0.95);
     opacity: 1;
     transition: all $hoverTransition;
+
+    @include for-phone-only {
+      position: relative;
+    }
   }
   figure .figure-overlay h3 {
     color: $light;

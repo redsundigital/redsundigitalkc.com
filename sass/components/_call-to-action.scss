@@ -20,10 +20,4 @@
     border-color: $light;
     color: $light;
   }
-
-  @include phone {
-    width: fit-content;
-    margin: 0 auto;
-    text-align: center;
-  }
 }
