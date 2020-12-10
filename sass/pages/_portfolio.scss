@@ -65,7 +65,7 @@
     transition: all $hoverTransition;
   }
   figure .figure-overlay h3 {
-    color: #eee;
+    color: $light;
     flex: 0.25;
     margin-bottom: 10px;
     font-size: 2rem;

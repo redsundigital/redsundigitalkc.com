@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <!-- Home -->
+  <!-- Landing -->
   <section id="home">
     <!-- <div id="sun"></div> -->
     <div class="brand flex-center">
@@ -87,7 +87,7 @@
     </div>
   </section>
 
-  <!-- Portfolio -->
+  <!-- Our Work -->
   <section id="portfolio">
     <div id="our-work">
 
@@ -148,7 +148,7 @@
           <h3>BBQ Dashboard</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptate nostrum commodi ex.</p>
           <br>
-          <p>You guessed it... demo coming soon.</p>
+          <p>Demo coming soon.</p>
           <ul class="overlay-links">
           </ul>
         </div>
@@ -163,7 +163,7 @@
           <h3>Cut Optimizer</h3>
           <p>Calculate the best cuts to make to reduce waste material.</p>
           <br>
-          <p>Demo coming soon.</p>
+          <p>You guessed it... demo coming soon.</p>
           <ul class="overlay-links">
           </ul>
         </div>
@@ -178,7 +178,7 @@
 
   </section>
 
-  <!-- About -->
+  <!-- About Us -->
   <section id="about">
     <div class="about-text-wrapper">
       <h1>About Us</h1>
@@ -200,35 +200,20 @@
 
   <!-- Contact -->
   <section id="contact">
-    <!-- <div class="background-block right"></div> -->
-
-    <div class="contact-block contact-block-left">
-      <h1 class="title crt-blur">Contact</h1>
-      <div class="subtitle crt-blur">Contact subtitle text.</div>
+    <div class="contact-text">
+      <h1>Contact</h1>
+      <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
     </div>
-    <div class="contact-block contact-block-right">
-      <form>
-        <div class="form-group">
-          <input name="email" type="email">
-          <label for="email">Your email</label>
-        </div>
-        <div class="form-group">
-          <input name="phone" type="number">
-          <label for="phone">Your phone <small>(optional)</small></label>
-        </div>
-        <div class="form-group">
-          <textarea name="message" rows="5"></textarea>
-          <label for="message">Your message</label>
-        </div>
-        <div class="form-group row">
-          <div class="checkbox">
-            <label for="prefer-text">Prefer text reply</label>
-            <input type="checkbox" name="prefer-text" id="prefer-text">
-          </div>
-        </div>
-        <button id="contact-send" class="call-to-action">Send</button>
-      </form>
-    </div>
+    <form>
+      <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+">
+      <input type="tel" name="tel" id="tel" placeholder="Phone (optional)" pattern="[0-9]{10}">
+      <textarea name="message" id="message" placeholder="Message" rows="6" required></textarea>
+      <div class="checkbox-wrapper">
+        <label for="prefer-text">Prefer text reply</label>
+        <input type="checkbox" name="prefer-text" id="prefer-text">
+      </div>
+      <button id="contact-send" class="call-to-action">Send</button>
+    </form>
   </section>
 
   <script src="./assets/js/index.js"></script>

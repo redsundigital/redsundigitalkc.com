@@ -19,7 +19,7 @@
 
   .navscreen-link {
     margin: 1rem;
-    color: #aaa;
+    color: $light;
     font-size: 2rem;
     font-weight: bold;
     font-family: 'VCR', Arial, Helvetica, sans-serif;
@@ -27,7 +27,10 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 6px;
-    filter: drop-shadow(3px 3px 6px #888) blur($filterBlur + 0.5px);
+    filter: drop-shadow(
+        3px 3px 6px transparentize($color: $light, $amount: 0.5)
+      )
+      blur($filterBlur + 0.5px);
 
     &::before,
     &::after {
@@ -40,7 +43,7 @@
     }
 
     &:hover {
-      color: #fff;
+      // color: #fff;
       transform: scale(1.1) !important;
       filter: blur($filterBlur);
       cursor: pointer;

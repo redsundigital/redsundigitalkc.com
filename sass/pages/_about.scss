@@ -1,18 +1,18 @@
 #about {
   @extend .crt-blur;
-  margin: 10% 0;
+  margin: 10% auto;
   display: flex;
   flex-direction: row;
   background-color: $dark;
 
-  h1 {
-    color: $light;
-    margin-bottom: 20px;
-  }
-
   .about-text-wrapper {
     flex: 1.5;
     z-index: 1;
+
+    h1 {
+      color: $light;
+      margin-bottom: 20px;
+    }
 
     .about-text {
       flex: 1;
@@ -21,9 +21,10 @@
       flex-direction: column;
       color: $light;
       font-family: 'Raleway', Arial, Helvetica, sans-serif;
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 400;
-      letter-spacing: 5px;
+      letter-spacing: 3px;
+      line-height: 1.2;
       text-align: left;
       filter: drop-shadow(
           1px 1px 2px transparentize($color: $dark, $amount: 0.66)
@@ -44,26 +45,6 @@
       p {
         width: 85%;
       }
-
-      // p:not(:first-of-type) {
-      //   margin: 3rem 0;
-      // }
-
-      // p:nth-child(1) {
-      //   position: relative;
-      //   color: $light;
-
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   width: 120vw;
-      //   height: 120%;
-      //   top: -10%;
-      //   left: -20%;
-      //   z-index: -1;
-      //   background-color: transparentize($color: $accent, $amount: 0.4);
-      // }
-      // }
     }
   }
 
@@ -72,24 +53,12 @@
     flex: 1;
     z-index: 1;
 
-    // // Inset border
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   width: 94%;
-    //   height: 96%;
-    //   border: 6px solid $accent;
-    //   z-index: 2;
-    //   left: calc(3% - 6px);
-    //   top: calc(2% - 6px);
-    // }
-
     img {
       position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: saturate(0) contrast(2.5) blur($filterBlur);
+      filter: saturate(0) contrast(1.75) blur($filterBlur);
     }
   }
 }

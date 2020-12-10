@@ -139,8 +139,9 @@ function setSmoothScrollOnAnchors() {
 let fuzzyBackground = true;
 let oldScroll = 0;
 document.addEventListener('scroll', function (e) {
+  return;
   const scroll = window.scrollY;
-  sun.style.top = 'calc(10% - ' + scroll * 0.07 + 'px)';
+  sun.style.top = 'calc(10% - ' + scroll * 0.3 + 'px)';
   ship.style.top = 'calc(15% + ' + scroll * 0.2 + 'px)';
 
   const scrollingDown = scroll > oldScroll;
