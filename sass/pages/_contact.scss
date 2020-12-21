@@ -33,6 +33,10 @@
         border-left: 6px solid $accent;
         font-size: 1.25em;
       }
+
+      @include media(desktop-lg) {
+        font-size: 0.9em;
+      }
     }
   }
 
@@ -72,6 +76,10 @@
         font-size: 1em;
       }
 
+      @include media(desktop-lg) {
+        font-size: 0.75em;
+      }
+
       &:focus,
       &:hover {
         background: $gray;
@@ -99,6 +107,10 @@
 
         @include media(desktop) {
           font-size: 1em;
+        }
+
+        @include media(desktop-lg) {
+          font-size: 0.75em;
         }
       }
 
