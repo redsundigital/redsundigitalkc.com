@@ -1,29 +1,27 @@
 // Base
-@import "base/colors";
-@import "base/fonts";
-@import "base/mixins";
+@import 'base/reset';
+@import 'base/vars';
+@import 'base/colors';
+@import 'base/fonts';
+@import 'base/mixins';
+@import 'base/anims';
+@import 'base/effects';
 
 // Components
-@import "components/nav";
-@import "components/socials";
-@import "components/form";
-@import "components/call-to-action";
-@import "components/scrollbar";
-@import "components/navtoggle";
+@import 'components/card';
+@import 'components/form';
+@import 'components/call-to-action';
+@import 'components/scrollbar';
+@import 'components/navtoggle';
 
 // Layout
-@import "layout/layout";
-@import "layout/flex-center";
-@import "layout/filler-text";
+@import 'layout/layout';
+@import 'layout/filler-text';
 
 // Pages
-@import "pages/home";
-@import "pages/services";
-@import "pages/portfolio";
-@import "pages/about";
-@import "pages/contact";
-@import "pages/navscreen";
-
-// TODO: move these to appropriate directory
-@import "anims";
-@import "effects";
+@import 'pages/home';
+@import 'pages/services';
+@import 'pages/portfolio';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/navscreen';

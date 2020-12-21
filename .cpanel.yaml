@@ -1,7 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/bngsu67yhsgv/public_html/
-    - export DEPLOYPATHASSETS=/home/bngsu67yhsgv/public_html/assets
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp -R assets $DEPLOYPATHASSETS

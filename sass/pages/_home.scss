@@ -1,122 +1,109 @@
-$blurAmt: 1.5px;
-
 #home {
+  @extend .flex-center;
+  position: relative;
+
+  .brand {
     @extend .flex-center;
     position: relative;
+    width: 100%;
+    z-index: 99;
+    flex-direction: column;
+    transform: rotate(0);
 
-    #sun {
-        position: fixed;
-        width: 200px;
-        height: 200px;
-        top: 10%;
-        left: calc(50% - 100px);
-        z-index: -1;
-        border-radius: 100%;            
-        background: $accent;
-        filter: blur(5px);
-        pointer-events: none;
+    @include media(desktop) {
+      transform: rotate(-1.5deg);
     }
 
-    #ship {
-        position: fixed;
-        width: 20px;
-        height: 30px;
-        top: 20%;
-        z-index: -2;
-        background: $accent;
-        box-shadow: 0px -15px 16px $accent;
-        pointer-events: none;
-        opacity: 0.66;
-        transform: scale(0.5);
-        transition: top 1.2s;
-        filter: blur(8px);
-        
-        // Trail (like a comet tail)
-        &::before {
-            position: absolute;
-            content: "";
-            width: 20px;
-            height: 200px;
-            top: -200px;
-            left: calc(50% - 10px);
-            background: linear-gradient(transparent 12%, $accent);
+    .brand-text {
+      max-width: fit-content;
+      color: transparent;
+      text-transform: uppercase;
+      -webkit-text-stroke-width: 4px;
+
+      // Mobile branding
+      &.mobile {
+        // Default visible (mobile-first)
+
+        // Hide on desktop
+        @include media(desktop) {
+          display: none;
         }
+      }
+
+      // Desktop branding
+      &:not(.mobile) {
+        // Default hidden (mobile-first)
+        display: none;
+
+        // Show on desktop
+        @include media(desktop) {
+          display: block;
+        }
+      }
     }
 
-    .brand {
-        position: relative;
+    .brand-primary {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      letter-spacing: 4px;
+      transform: skew(-15deg);
+      filter: drop-shadow(4px 4px 8px $accent) blur($filterBlur);
+      -webkit-text-stroke-color: $accent;
+
+      @include media(mobile) {
+        font-size: 13em;
+        letter-spacing: 2px;
+        text-align: left;
+        transform: skew(0);
+        -webkit-text-stroke-width: 3px;
+      }
+
+      @include media(tablet) {
+        font-size: 10em;
+      }
+
+      @include media(desktop) {
+        font-size: 4em;
+        transform: skew(-10deg);
+      }
+
+      .fill {
+        color: $accent;
+        opacity: 0.75;
+      }
+    }
+
+    .brand-secondary {
+      position: relative;
+      width: 0;
+      left: 0;
+      color: $light;
+      font-family: 'Raleway', Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-align: left;
+      opacity: 1;
+      transform: skew(-10deg);
+      filter: drop-shadow(
+          3px 3px 6px transparentize($color: $light, $amount: 0.5)
+        )
+        blur($filterBlur);
+
+      @include media(mobile) {
         width: 100%;
-        top: -5vh;
-        z-index: 99;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: rotate(-1.5deg);
+        font-size: 9em;
+        line-height: 1.2;
+        transform: skew(0);
+      }
 
-        .brand-text {
-            color: transparent;
-            font-size: 8rem;
-            text-transform: uppercase;
-            letter-spacing: -4px;
-            -webkit-text-stroke-width: 4px;
-            max-width: fit-content;
-        }
+      @include media(tablet) {
+        font-size: 7em;
+      }
 
-        .brand-primary {
-            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-            font-weight: 900;
-            filter: drop-shadow(4px 4px 8px $accent) blur($blurAmt);
-            transform: skew(-15deg);
-            -webkit-text-stroke-color: $accent;
-
-            .blink {
-                animation: flicker .75s steps(20, end) forwards 3.5s;
-            }
-
-            @include phone {
-                font-size: 10vw;
-                filter: drop-shadow(4px 4px 8px $accent) blur(0.25px);
-            }
-        }
-
-        .brand-secondary {
-            // NOTE: typewriter anim is in sass/effects.
-            position: relative;
-            width: 0;
-            left: 0;
-            color: #ddd;
-            font-family: 'Raleway', Arial, Helvetica, sans-serif;
-            font-size: 5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-align: left;
-            opacity: 1;
-            filter: drop-shadow(3px 3px 6px rgba(238, 238, 238, 0.5)) blur($blurAmt);
-            transform: skew(-15deg);
-
-            &::before, 
-            &::after {
-                content: attr(data-glitch);
-                position: absolute;     
-                width: 100%;
-                height: 100%;
-                left: 0;
-                opacity: 0.4;
-            }
-
-            @include phone {
-                font-size: 5vw;
-                font-weight: 400;
-                filter: drop-shadow(3px 3px 3px rgba(238, 238, 238, 0.33)) blur(0.25px);
-            }
-        }
+      @include media(desktop) {
+        font-size: 2.5em;
+        transform: skew(-10deg);
+      }
     }
-
-    .socials,
-    .game {
-        @include phone {
-            display: none;
-        }
-    }
+  }
 }

@@ -1,71 +1,101 @@
 #navscreen {
-    // default visibility:
-    opacity: 0;
+  @extend .flex-center;
+  position: fixed;
+  width: 100vw;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  flex-direction: column;
+  background: $dark;
+  transition: opacity 0.33s, height 0.33s ease-in-out;
+  pointer-events: none;
+  overflow: hidden;
 
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    background: $dark;
-    z-index: 100;
-    transition: opacity 0.33s;
-    pointer-events: none;
+  &.active {
+    height: 100%;
+    pointer-events: all;
+  }
+
+  .navscreen-link {
+    margin: 16px;
+    color: $light;
+    font-size: 4em;
+    font-weight: bold;
+    font-family: 'VCR', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    filter: drop-shadow(
+        3px 3px 6px transparentize($color: $light, $amount: 0.5)
+      )
+      blur($filterBlur + 0.5px);
+
+    @include media(tablet) {
+      font-size: 2.25em;
+    }
+
+    @include media(desktop) {
+      font-size: 1.2em;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: attr(data-glitch);
+      width: 100%;
+      height: 100%;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    &:hover {
+      // color: #fff;
+      transform: scale(1.1) !important;
+      filter: blur($filterBlur);
+      cursor: pointer;
+    }
+
+    &:hover::before {
+      color: cyan;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    }
+
+    &:hover::after {
+      color: fuchsia;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+        infinite;
+    }
 
     &.active {
-        pointer-events: all;
+      color: #fff;
+    }
+  }
+
+  .socials {
+    position: absolute;
+    bottom: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .navscreen-link:last-child {
+      color: $accent;
+      filter: drop-shadow(3px 3px 6px $accent) blur($filterBlur);
+      opacity: 0.75;
+
+      &:hover {
+        opacity: 1;
+      }
     }
 
-    .navscreen-link {
-        margin: 1rem auto;
-        color: #aaa;
-        font-size: 2rem;
-        font-weight: bold;
-        font-family: 'VCR', Arial, Helvetica, sans-serif;
-        text-decoration: none;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 6px;
-        filter: drop-shadow(3px 3px 6px #888) blur(1.5px);
+    i {
+      font-size: 1.25em;
 
-        &::before, 
-        &::after {
-            position: absolute;     
-            content: attr(data-glitch);
-            width: 100%;
-            height: 100%;
-            left: 0;
-            opacity: 0.4;
-        }
-
-        &:hover {
-            color: #fff;
-            transform: scale(1.1) !important;
-            filter: blur(1px);
-            cursor: pointer;   
-        }
-
-        &:hover::before {
-            color: cyan;
-            animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
-        }
-        
-        &:hover::after {
-            color: fuchsia;
-            animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
-        }
-
-        &.active { 
-            color: #fff;
-        }
+      // @include media(tablet) {
+      //   font-size: 0.85em;
+      // }
     }
-
-    .socials {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-
-        i { font-size: 2.5rem; }
-    }
+  }
 }

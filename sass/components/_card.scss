@@ -1,0 +1,70 @@
+.card {
+  @extend .crt-blur;
+  max-width: 300px;
+  padding: 1rem;
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  color: $light;
+  font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+
+  @include media(tablet) {
+    max-width: 50vw;
+  }
+
+  @include media(desktop) {
+    max-width: 300px;
+    margin: 1em 0;
+  }
+
+  @include media(desktop-lg) {
+    max-width: 300px;
+  }
+
+  .card-title {
+    font-size: 5em;
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+
+    @include media(tablet) {
+      font-size: 4em;
+    }
+
+    @include media(desktop) {
+      font-size: 1.75em;
+    }
+
+    @include media(desktop-lg) {
+      font-size: 1.25em;
+    }
+  }
+
+  .card-image {
+    text-align: center;
+
+    img {
+      width: 200px;
+      padding: 30px 60px;
+      opacity: 0.75;
+    }
+  }
+
+  .card-body {
+    font-size: 3em;
+    text-align: center;
+    opacity: 0.75;
+
+    @include media(tablet) {
+      font-size: 2.25em;
+    }
+
+    @include media(desktop) {
+      font-size: 1em;
+    }
+
+    @include media(desktop-lg) {
+      font-size: 0.75em;
+    }
+  }
+}

@@ -1,44 +1,193 @@
 #contact {
-    height: 100%;
-    display: flex;
+  @extend .crt-blur;
+  display: flex;
+  flex-direction: column;
+
+  @include media(desktop) {
     flex-direction: row;
+  }
 
-    .title {
-        &::before {
-            position: absolute;
-            content: "";
-            width: 100vh;
-            height: 100vh;
-            border: 0.8rem dotted $accent;
-            border-radius: 100%;
-            top: -50vh;
-            left: -50vh;
-            background: transparent;
-            opacity: 0.1;
-            animation: rotate 360s linear infinite;
-            transform: translate(-50%, -50%);
-            filter: blur(1px);
-        }
+  .contact-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    h3 {
+      position: relative;
+      width: 80%;
+      margin: 32px auto 0 auto;
+      color: $light;
+      font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+      font-size: 3em;
+      opacity: 0.5;
+
+      @include media(tablet) {
+        font-size: 2em;
+      }
+
+      @include media(desktop) {
+        width: 100%;
+        padding-left: 16px;
+        margin-top: 32px;
+        border-left: 6px solid $accent;
+        font-size: 1.25em;
+      }
+
+      @include media(desktop-lg) {
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4.5em;
+
+    @include media(desktop) {
+      padding: 32px;
+      padding-top: 0;
     }
 
-    .contact-block {
+    input,
+    textarea,
+    button,
+    div {
+      margin: 16px 0;
+    }
+
+    input,
+    textarea {
+      padding: 16px;
+      border: none; // remove borders to allow bottom border only
+      border-bottom: 2px solid $gray;
+      background-color: $dark;
+      color: $light;
+      font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+      font-size: 2.5em;
+      outline: none;
+
+      @include media(tablet) {
+        font-size: 1.5em;
+      }
+      @include media(desktop) {
+        font-size: 1em;
+      }
+
+      @include media(desktop-lg) {
+        font-size: 0.75em;
+      }
+
+      &:focus,
+      &:hover {
+        background: $gray;
+        border-color: $accent;
+      }
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include media(desktop) {
+        justify-content: flex-start;
+      }
+
+      label {
+        color: $light;
+        font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+        font-size: 2.5em;
+
+        @include media(tablet) {
+          font-size: 1.5em;
+        }
+
+        @include media(desktop) {
+          font-size: 1em;
+        }
+
+        @include media(desktop-lg) {
+          font-size: 0.75em;
+        }
+      }
+
+      label,
+      input[type='checkbox'] {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      input[type='checkbox'] {
         position: relative;
-        min-height: 100%;
-        
-        &.contact-block-left {
-            flex: 0.5;
+        width: 30px;
+        height: 30px;
+        margin-left: 16px;
+
+        &:not(:checked) {
+          &::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid $gray;
+            background-color: $dark;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: 8px;
+            left: 8px;
+            border: 2px solid $dark;
+            background-color: $dark;
+          }
+
+          &:hover {
+            &::after {
+              border-color: $accent;
+              background-color: $accent;
+              opacity: 0.5;
+            }
+          }
         }
 
-        &.contact-block-right {
-            flex: 0.4;
+        &:checked {
+          &::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid $gray;
+            background-color: $dark;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: 8px;
+            left: 8px;
+            border: 2px solid $accent;
+            background-color: $accent;
+          }
         }
+      }
     }
 
-    @include phone {
-        flex-direction: column;
-        
-        .subtitle {
-            width: 100%;
-        }
+    button {
+      margin: 32px auto;
+      padding: 0.25em 1.5em;
+
+      @include media(desktop) {
+        margin: 32px 0 32px auto;
+      }
     }
+  }
 }

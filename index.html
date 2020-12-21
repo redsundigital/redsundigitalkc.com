@@ -2,238 +2,222 @@
 <html lang="en">
 
 <head>
-    <title>Red Sun Digital</title>
-    <link rel="stylesheet" href="/assets/css/base.css/base.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Sun Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="./assets/css/base.css/base.css">
 </head>
 
 <body>
-    <div class="crt">
+  <!-- Nav toggle -->
+  <div id="navtoggle"><i class="fa fas fa-eject fa-3x"></i></div>
 
-        <!-- Nav -->
-        <nav class="nav flex-center sticky">
-            <!-- Note: data-glitch attr values should match the element's text -->
-            <a href="#home" data-glitch="Home" class="home">Home</a>
-            <a href="#services" data-glitch="Services" class="services">Services</a>
-            <a href="#portfolio" data-glitch="Portfolio" class="portfolio">Portfolio</a>
-            <a href="#about" data-glitch="About" class="about">About</a>
-            <a href="#contact" data-glitch="Contact" class="contact">Contact</a>
-        </nav>
+  <!-- Nav Screen -->
+  <div id="navscreen">
+    <a href="#home" data-glitch="Home" class="navscreen-link">Home</a></li>
+    <a href="#services" data-glitch="Services" class="navscreen-link">Services</a></li>
+    <a href="#portfolio" data-glitch="Our Work" class="navscreen-link">Our Work</a></li>
+    <a href="#about" data-glitch="About Us" class="navscreen-link">About Us</a></li>
+    <a href="#contact" data-glitch="Contact" class="navscreen-link">Contact</a></li>
+    <div class="socials">
+      <!-- <a href="" class="navscreen-link"><i class="fa fa-facebook"></i></a>
+      <a href="" class="navscreen-link"><i class="fa fa-linkedin"></i></a>
+      <a href="" class="navscreen-link"><i class="fa fab fa-instagram"></i></a> -->
+      <a href="http://midwaste.herokuapp.com/home" target="_blank" class="navscreen-link"><i
+          class="fa fa-gamepad"></i></a>
+    </div>
+  </div>
 
-        <!-- Nav toggle -->
-        <div id="navtoggle"><i class="fa fas fa-eject fa-3x"></i></div>
+  <!-- Landing -->
+  <section id="home">
+    <div class="brand">
+      <span class="brand-text brand-primary">//RedSunDigital</span>
+      <span class="brand-text brand-secondary typewriter">Web & Media Solutions</span>
+      <span class="brand-text brand-primary mobile">Red<br>Sun<br>Digi<br>tal<span class="fill">.</span></span>
+      <span class="brand-text brand-secondary mobile">Web<br>&<br>Media</span>
+    </div>
+  </section>
 
-        <!-- Nav Screen -->
-        <div id="navscreen" class="flex-center">
-                <a href="#home" data-glitch="Home" class="navscreen-link">Home</a></li>
-                <a href="#services" data-glitch="Services" class="navscreen-link">Services</a></li>
-                <a href="#portfolio" data-glitch="Portfolio" class="navscreen-link">Portfolio</a></li>
-                <a href="#about" data-glitch="About" class="navscreen-link">About</a></li>
-                <a href="#contact" data-glitch="Contact" class="navscreen-link">Contact</a></li>
-            <div class="socials">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-                <a href=""><i class="fa fab fa-instagram"></i></a>
-                <a href="http://midwaste.herokuapp.com/home" target="_blank"><i class="fa fa-gamepad"></i></a>
-            </div>
+  <!-- Services -->
+  <section id="services">
+    <h1>Services</h1>
+
+    <h3></h3>
+
+    <div class="service-cards">
+      <div class="card">
+        <h3 class="card-title">Web</h3>
+        <div class="card-image">
+          <img src="/redsundigitalkc.com/assets/img/globe.svg" alt="" srcset="">
         </div>
+        <p class="card-body">Content management and strategy. <br><br> Wordpress, WIX and Squarespace site management.
+          <br><br>
+          Layout and content addition and updates and add functionality.</p>
+      </div>
 
-        <!-- Home -->
-        <section id="home">
-            <div id="sun"></div>
-            <div id="ship"></div>
+      <div class="card">
+        <div class="card-image">
+          <h3 class="card-title">Media</h3>
+          <img src="/redsundigitalkc.com/assets/img/video.svg" alt="" srcset="">
+        </div>
+        <p class="card-body">Graphic design <br><br> Video <br><br> Branding</p>
+      </div>
 
-            <div class="brand flex-center">
-                <span class="brand-text brand-primary">//RedSunDigital</span>
-                <span class="brand-text brand-secondary typewriter" data-glitch="Web & Media Solutions.">Web & Media
-                    Solutions</span>
-            </div>
-            <div class="socials">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-                <a href=""><i class="fa fab fa-instagram"></i></a>
-            </div>
-            <div class="game">
-                <a href="http://midwaste.herokuapp.com/home" target="_blank"><i class="fa fa-gamepad"></i></a>
-            </div>
-        </section>
+      <div class="card">
+        <div class="card-image">
+          <h3 class="card-title">Android</h3>
+          <img src="/redsundigitalkc.com/assets/img/android.svg" alt="" srcset="">
+        </div>
+        <p class="card-body">Android app development.</p>
+      </div>
 
-        <!-- Services -->
-        <section id="services">
-            <div class="filler-text">++</div>
-            <h1 class="title title-right crt-blur">Services</h1>
-            <div class="content">
-                <div class="tabs">
-                    <!-- Note: data-glitch attr values should match the element's text -->
-                    <div class="tab active" data-glitch="Web" data-content="web">Web</div>
-                    <div class="tab" data-glitch="Media" data-content="media">Media</div>
-                    <div class="tab" data-glitch="Custom" data-content="custom">Custom</div>
-                    <div class="tab" data-glitch="Rates" data-content="rates">Rates</div>
-                </div>
-                <div class="tab-pages">
-                    <div class="tab-page web active">
-                        <p>
-                            Like websites and stuff. We'll use whatever framework you want as long as it's not hard and
-                            we feel like it.
-                        </p>
-                    </div>
-                    <div class="tab-page media">
-                        <p>
-                            Professional headshots and family portraits. Reduced price if your car is visible in the
-                            background. Photos are available immediately after sessions as we use your phone to take the
-                            photos.
-                        </p>
-                    </div>
-                    <div class="tab-page custom">
-                        <p>
-                            Same as usual but rates are doubled. This applies to everything we do.
-                        </p>
-                    </div>
-                    <div class="tab-page rates">
-                        <p>$100/hr per dev per hour. CAD only after 12AM CDT.</p>
-                    </div>
-                </div>
-                <a href="#contact" class="call-to-action">Contact</a>
-            </div>
-        </section>
-
-        <!-- Portfolio -->
-        <section id="portfolio">
-            <div class="background-block right rotating-filler"></div>
-            <h1 class="title crt-blur">Portfolio</h1>
-            <div class="posters">
-                <a href="http://midwaste.herokuapp.com/home" class="poster" target="_blank">
-                    <span>
-                        <img class="poster-img" src="https://jason-michael.github.io/assets/images/mw-1.png" alt="">
-                        <h3 class="poster-title">Midwaste</h3>
-                        <span class="poster-info">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nulla similique
-                                laudantium. Quaerat est vitae dicta nesciunt architecto sint odit!
-                            </p>
-                        </span>
-                    </span>
-                </a>
-                <a href="https://jkane88.github.io/Shaft-optimzer-2000/" class="poster" target="_blank">
-                    <span>
-                        <img class="poster-img"
-                            src="https://images.unsplash.com/photo-1513710239666-c29e2c09dc32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80"
-                            alt="">
-                        <h3 class="poster-title">Cut Optimizer</h3>
-                        <div class="poster-info">
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ad consequatur veniam
-                                adipisci nemo.
-                            </p>
-                        </div>
-                    </span>
-                </a>
-                <!-- <a href="#contact" class="poster">
-                    <span>
-                        <img class="poster-img" src="https://jason-michael.github.io/assets/images/mw-1.png" alt="">
-                        <h3 class="poster-title">Midwaste</h3>
-                        <span class="poster-info">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nulla similique
-                                laudantium. Quaerat est vitae dicta nesciunt architecto sint odit!
-                            </p>
-                        </span>
-                    </span>
-                </a>
-                <a href="#contact" class="poster">
-                    <span>
-                        <img class="poster-img"
-                            src="https://images.unsplash.com/photo-1513710239666-c29e2c09dc32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80"
-                            alt="">
-                        <h3 class="poster-title">Cut Optimizer</h3>
-                        <div class="poster-info">
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ad consequatur veniam
-                                adipisci nemo.
-                            </p>
-                        </div>
-                    </span>
-                </a> -->
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about">
-            <div class="background-block left"></div>
-            <h1 class="title title-right crt-blur">About</h1>
-            <div class="about-section">
-                <div class="about-block crt">
-                    <img src="https://images.unsplash.com/photo-1534455700361-eca9c3dbc981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                        alt="">
-                    <div class="about-text">
-                        <h2 class="name">Justin<br/> Kane</h2>
-                        <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit expedita
-                            repudiandae quibusdam maiores, molestiae non deleniti ut cum magnam itaque.</p>
-                    </div>
-                    <div class="about-contact">
-                        <!-- <a href="" class="contact-link"><i class="fa fa-facebook"></i></a> -->
-                        <a href="https://www.linkedin.com/in/justin-kane-b621aa169/" class="contact-link"><i class="fa fa-linkedin"></i></a>
-                        <!-- <a href="" class="contact-link"><i class="fa fab fa-instagram"></i></a> -->
-                        <a href="https://github.com/jkane88" class="contact-link"><i class="fa fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="about-section">
-                <div class="about-block secondary crt">
-                    <img src="https://images.unsplash.com/photo-1595136895914-da8f886a7ed8?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
-                        alt="">
-                    <div class="about-text">
-                        <h2 class="name">Jason<br/> Michael</h2>
-                        <p class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod impedit
-                            exercitationem excepturi explicabo expedita ad distinctio.</p>
-                    </div>
-                    <div class="about-contact">
-                        <a href="https://www.linkedin.com/in/jason-n-michael/" target="_blank" class="contact-link"><i class="fa fa-linkedin"></i></a>
-                        <a href="https://github.com/jason-michael" target="_blank" class="contact-link"><i class="fa fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="filler-text">++</div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact">
-            <div class="background-block right"></div>
-
-            <div class="contact-block contact-block-left">
-                <h1 class="title crt-blur">Contact</h1>
-                <div class="subtitle crt-blur">Contact subtitle text.</div>
-            </div>
-            <div class="contact-block contact-block-right">
-                <form>
-                    <div class="form-group">
-                        <input name="email" type="email">
-                        <label for="email">Your email</label>
-                    </div>
-                    <div class="form-group">
-                        <input name="phone" type="number">
-                        <label for="phone">Your phone <small>(optional)</small></label>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5"></textarea>
-                        <label for="message">Your message</label>
-                    </div>
-                    <div class="form-group row">
-                        <div class="checkbox">
-                            <label for="prefer-text">Prefer text reply</label>
-                            <input type="checkbox" name="prefer-text" id="prefer-text">
-                        </div>
-                    </div>
-                    <button id="contact-send" class="call-to-action">Send</button>
-                </form>
-            </div>
-        </section>
+      <div class="card">
+        <div class="card-image">
+          <h3 class="card-title">Custom</h3>
+          <img src="/redsundigitalkc.com/assets/img/programming.svg" alt="" srcset="">
+        </div>
+        <p class="card-body">From websites to IoT applications we have the solution to your business process. </p>
+      </div>
     </div>
 
-    <script src="/assets/js/index.js"></script>
+    <a href="#contact" class="call-to-action">Contact</a>
+    </div>
+  </section>
+
+  <!-- Our Work -->
+  <section id="portfolio">
+    <div id="our-work">
+
+      <div class="block block1">
+        <h1>Our Work</h1>
+        <p>Check out some of our best work so far.</p>
+      </div>
+
+      <!-- FLIS -->
+      <figure class="figure1">
+        <img src="/redsundigitalkc.com/assets/img/flsd-web-demo.png" class="figure-img">
+        <div class="figure-overlay">
+          <h3>Forklift Information System</h3>
+          <p>A safety solution engineered to prevent forklift-related accidents, injuries, and property damage by
+            providing real-time monitoring and safety alerts well before accidents occur.
+          </p>
+          <br>
+          <ul class="overlay-links">
+            <li>
+              <p>More info and an interactive demo <a href="https://www.oeattachments.com/forklift-safety-device/"
+                  target="_blank">here.</a></p>
+            </li>
+          </ul>
+        </div>
+      </figure>
+
+      <!-- Midwaste -->
+      <figure class="figure2">
+        <img src="/redsundigitalkc.com/assets/img/mw-1.png" class="figure-img">
+        <div class="figure-overlay">
+          <h3>Midwaste</h3>
+          <p>Free-to-play zombie survival you can play in your browser.</p>
+          <ul class="overlay-links">
+            <li><a href="http://midwaste.herokuapp.com/home" target="_blank">Play</i></a></li>
+          </ul>
+        </div>
+      </figure>
+
+      <!-- Photobooth -->
+      <figure class="figure3">
+        <img
+          src="https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+          class="figure-img">
+        <div class="figure-overlay">
+          <h3>Photobooth</h3>
+          <p>Raspberry Pi powered photobooth kiosk that you can control with your phone.</p>
+          <br>
+          <p>Demo coming soon.</p>
+          <ul class="overlay-links">
+          </ul>
+        </div>
+      </figure>
+
+      <!-- Pellet Smoker Dashboard -->
+      <figure class="figure4">
+        <img src="/redsundigitalkc.com/assets/img/dashboard.png" class="figure-img">
+        <div class="figure-overlay">
+          <h3>BBQ Dashboard</h3>
+          <p>MQTT cloud application for monitoring bluetooth probes connected to your pellet smoker.</p>
+          <br>
+          <p>Demo coming soon.</p>
+          <ul class="overlay-links">
+          </ul>
+        </div>
+      </figure>
+
+      <!-- Cut Optimizer -->
+      <figure class="figure5">
+        <img
+          src="https://images.unsplash.com/photo-1513710239666-c29e2c09dc32?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+          class="figure-img">
+        <div class="figure-overlay">
+          <h3>Cut Optimizer</h3>
+          <p>Calculate the best cuts to make to reduce waste material.</p>
+          <br>
+          <p>You guessed it... demo coming soon.</p>
+          <ul class="overlay-links">
+          </ul>
+        </div>
+      </figure>
+
+      <div class="block block2">
+        <h3>Like what you see?</h3>
+        <p><a href="#contact" class="block-link">Contact us.</a></p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <div class="about-text-wrapper">
+      <h1>About Us</h1>
+      <br>
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nesciunt vitae esse nemo aut, deserunt ipsa est,
+          voluptas sit inventore, debitis suscipit eligendi doloribus nisi? Distinctio quia laborum debitis dolores!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, necessitatibus maiores expedita
+          explicabo deleniti nam.</p>
+      </div>
+    </div>
+    <div class="about-img-wrapper">
+      <img
+        src="https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+        alt="">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-text">
+      <h1>Contact</h1>
+      <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
+    </div>
+    <form>
+      <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+">
+      <input type="tel" name="tel" id="tel" placeholder="Phone (optional)" pattern="[0-9]{10}">
+      <textarea name="message" id="message" placeholder="Message" rows="3" required></textarea>
+      <div class="checkbox-wrapper">
+        <label for="prefer-text">Prefer text reply</label>
+        <input type="checkbox" name="prefer-text" id="prefer-text">
+      </div>
+      <button id="contact-send" class="call-to-action">Send</button>
+    </form>
+  </section>
+
+  <script src="./assets/js/index.js"></script>
 </body>
 
 </html>

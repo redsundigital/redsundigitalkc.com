@@ -1,0 +1,121 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+$glitchAmt: 2px;
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-$glitchAmt, $glitchAmt);
+  }
+  40% {
+    transform: translate(-$glitchAmt, -$glitchAmt);
+  }
+  60% {
+    transform: translate($glitchAmt, $glitchAmt);
+  }
+  80% {
+    transform: translate($glitchAmt, -$glitchAmt);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+// @keyframes flicker {
+//     0%  { opacity: 0.89; }
+//     5%  { opacity: 0.86; }
+//     10% { opacity: 0.91; }
+//     15% { opacity: 0.64; }
+//     20% { opacity: 0.93; }
+//     25% { opacity: 0.67; }
+//     30% { opacity: 0.74; }
+//     35% { opacity: 0.73; }
+//     40% { opacity: 0.90; }
+//     45% { opacity: 0.66; }
+//     50% { opacity: 0.62; }
+//     55% { opacity: 0.97; }
+//     60% { opacity: 0.92; }
+//     65% { opacity: 0.72; }
+//     70% { opacity: 0.79; }
+//     75% { opacity: 0.85; }
+//     80% { opacity: 0.72; }
+//     85% { opacity: 0.72; }
+//     90% { opacity: 0.72; }
+//     95% { opacity: 0.86; }
+//     100%{ opacity: 0.90; }
+// }
+
+// @keyframes textShadow {
+//     0%  { text-shadow: 0.43px 0 1px $textShadowPrimary, -0.43px 0 1px $textShadowSecondary, 0 0 3px; }
+//     5%  { text-shadow: 2.79px 0 1px $textShadowPrimary, -2.79px 0 1px $textShadowSecondary, 0 0 3px; }
+//     10% { text-shadow: 0.02px 0 1px $textShadowPrimary, -0.02px 0 1px $textShadowSecondary, 0 0 3px; }
+//     15% { text-shadow: 0.40px 0 1px $textShadowPrimary, -0.40px 0 1px $textShadowSecondary, 0 0 3px; }
+//     20% { text-shadow: 3.47px 0 1px $textShadowPrimary, -3.47px 0 1px $textShadowSecondary, 0 0 3px; }
+//     25% { text-shadow: 1.61px 0 1px $textShadowPrimary, -1.61px 0 1px $textShadowSecondary, 0 0 3px; }
+//     30% { text-shadow: 0.70px 0 1px $textShadowPrimary, -0.70px 0 1px $textShadowSecondary, 0 0 3px; }
+//     35% { text-shadow: 3.89px 0 1px $textShadowPrimary, -3.89px 0 1px $textShadowSecondary, 0 0 3px; }
+//     40% { text-shadow: 3.87px 0 1px $textShadowPrimary, -3.87px 0 1px $textShadowSecondary, 0 0 3px; }
+//     45% { text-shadow: 2.23px 0 1px $textShadowPrimary, -2.23px 0 1px $textShadowSecondary, 0 0 3px; }
+//     50% { text-shadow: 0.08px 0 1px $textShadowPrimary, -0.08px 0 1px $textShadowSecondary, 0 0 3px; }
+//     55% { text-shadow: 2.37px 0 1px $textShadowPrimary, -2.37px 0 1px $textShadowSecondary, 0 0 3px; }
+//     60% { text-shadow: 2.20px 0 1px $textShadowPrimary, -2.20px 0 1px $textShadowSecondary, 0 0 3px; }
+//     65% { text-shadow: 2.86px 0 1px $textShadowPrimary, -2.86px 0 1px $textShadowSecondary, 0 0 3px; }
+//     70% { text-shadow: 0.48px 0 1px $textShadowPrimary, -0.48px 0 1px $textShadowSecondary, 0 0 3px; }
+//     75% { text-shadow: 1.89px 0 1px $textShadowPrimary, -1.89px 0 1px $textShadowSecondary, 0 0 3px; }
+//     80% { text-shadow: 0.08px 0 1px $textShadowPrimary, -0.08px 0 1px $textShadowSecondary, 0 0 3px; }
+//     85% { text-shadow: 0.09px 0 1px $textShadowPrimary, -0.09px 0 1px $textShadowSecondary, 0 0 3px; }
+//     90% { text-shadow: 3.44px 0 1px $textShadowPrimary, -3.44px 0 1px $textShadowSecondary, 0 0 3px; }
+//     95% { text-shadow: 2.18px 0 1px $textShadowPrimary, -2.18px 0 1px $textShadowSecondary, 0 0 3px; }
+//     100%{ text-shadow: 2.62px 0 1px $textShadowPrimary, -2.62px 0 1px $textShadowSecondary, 0 0 3px; }
+// }
+
+/* Typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 105%;
+  } /* letter-spacing on anim parent affects width (100% doesn't fit content) */
+}
+
+/* Typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: $light;
+  }
+}
+
+/* Slowly blurs the element */
+@keyframes slow-blur-out {
+  from {
+    filter: drop-shadow(4px 4px 8px $accent) blur(1.5px); /*color:$accent*/
+  }
+  to {
+    filter: drop-shadow(4px 4px 8px $accent) blur(2.5px); /*color:transparent*/
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
