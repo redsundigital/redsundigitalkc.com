@@ -17,6 +17,10 @@
       margin-bottom: 40px;
     }
 
+    .about-highlight {
+      color: $dark;
+    }
+
     .about-text {
       flex: 1;
       padding: 0 16px;
@@ -25,10 +29,9 @@
       flex-direction: column;
       color: $light;
       font-family: 'Raleway', Arial, Helvetica, sans-serif;
-      font-size: 3em;
       font-weight: 400;
       letter-spacing: 3px;
-      line-height: 1.2;
+      line-height: 1.1;
       text-align: center;
       filter: drop-shadow(
           1px 1px 2px transparentize($color: $dark, $amount: 0.66)
@@ -56,8 +59,8 @@
         content: '';
         position: absolute;
         width: 120vw;
-        height: 120%;
-        top: -10%;
+        height: 110%;
+        top: -5%;
         left: -20%;
         z-index: -1;
         background-color: transparentize($color: $accent, $amount: 0.25);
@@ -65,9 +68,33 @@
 
       p {
         width: 100%;
+        font-size: 0.75em;
+
+        @include media(mobile) {
+          font-size: 2.2em;
+          line-height: 1.2;
+          margin: 0.33em 0;
+        }
+
+        @include media(tablet) {
+          font-size: 1em;
+          margin: 0;
+        }
 
         @include media(desktop) {
           width: 85%;
+        }
+      }
+
+      a {
+        color: $dark;
+        // border-bottom: 1px solid $dark;
+        text-decoration: underline;
+        text-decoration-color: $dark;
+
+        &:hover {
+          color: $light;
+          text-decoration-color: $light;
         }
       }
     }

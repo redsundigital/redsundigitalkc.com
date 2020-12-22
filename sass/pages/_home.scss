@@ -51,7 +51,7 @@
       -webkit-text-stroke-color: $accent;
 
       @include media(mobile) {
-        font-size: 13em;
+        font-size: 12em;
         letter-spacing: 2px;
         text-align: left;
         transform: skew(0);
@@ -91,7 +91,7 @@
 
       @include media(mobile) {
         width: 100%;
-        font-size: 9em;
+        font-size: 8em;
         line-height: 1.2;
         transform: skew(0);
       }
