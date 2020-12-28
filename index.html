@@ -227,15 +227,11 @@
       <h1>Contact</h1>
       <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
     </div>
-    <form>
-      <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+">
-      <input type="tel" name="tel" id="tel" placeholder="Phone (optional)" pattern="[0-9]{10}">
-      <textarea name="message" id="message" placeholder="Message" rows="3" required></textarea>
-      <div class="checkbox-wrapper">
-        <label for="prefer-text">Prefer text reply</label>
-        <input type="checkbox" name="prefer-text" id="prefer-text">
-      </div>
-      <button id="contact-send" class="call-to-action">Send</button>
+    <form action="contact.php" method="POST">
+      <input type="text" name="visitor_name" placeholder="Name">
+      <input type="email" name="visitor_email" id="email" placeholder="Email" required pattern=".+@.+\..+">
+      <textarea id="message" name="visitor_message" placeholder="Message" rows="3" required></textarea>
+      <button type="submit" id="contact-send" class="call-to-action">Send</button>
     </form>
   </section>
 
