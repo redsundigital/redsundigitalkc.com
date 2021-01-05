@@ -1,4 +1,9 @@
 <?php   
+    # Error reporting
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
+    set_error_handler("var_dump");
+
     $msg = '';          # The message to show when the form has been submitted.
     $msgClass = '';     # The class to apply to the message element on submit.
     $errorClass = '';   # The class to use on error.   //TODO: decide classname and update scss.
@@ -44,14 +49,13 @@
                     # Email success
                     $msg = 'Your contact request has been sent.';
                     $msgClass = $successClass;
-                    echo "<script>alert('$msg');</script>"
+                    echo "<script>alert('$msg');</script>";
                 } else {
                     # Email failed
                     $msg = 'Your contact request was not sent.';
                     $msgClass = $errorClass;
-                    echo "<script>alert('$msg');</script>"
+                    echo "<script>alert('$msg');</script>";
                 }
-
             }
         } else {
             # A required field was not entered.
