@@ -44,19 +44,19 @@
 
                 # Send the email:
                 if (mail($toEmail, $subject, $body, $headers)) {
-                  # Email success
-                  $msg = 'Your contact request has been sent.';
-                  $msgClass = $successClass;
+                    # Email success
+                    $msg = 'Your contact request has been sent.';
+                    $msgClass = $successClass;
                 } else {
-                  # Email failed
-                  $msg = 'Your contact request was not sent.';
-                  $msgClass = $errorClass;
+                    # Email failed
+                    $msg = 'Your contact request was not sent.';
+                    $msgClass = $errorClass;
                 }
             }
         } else {
-            # A required field was not entered.
-            $msg = 'Please fill in all fields.';
-            $msgClass = $errorClass;
+                # A required field was not entered.
+                $msg = 'Please fill in all fields.';
+                $msgClass = $errorClass;
         }
     }
 ?>
@@ -291,14 +291,13 @@
       <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
     </div>
       <?php if($msg != ''): ?>
-        <!-- TODO: position and style this element. -->
-        <div class="alert <?php echo $msgClass; ?>" style="color: white;"><?php echo $msg; ?></div>
+        <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
       <?php endif; ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
       <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
       <textarea id="message" name="message" placeholder="Message" rows="3" required><?php echo isset($_POST['message']) ? $message : ''; ?></textarea>
-      <button type="submit" class="call-to-action">Send</button>
+      <button type="submit" name="submit" class="call-to-action">Send</button>
     </form>
   </section>
 
