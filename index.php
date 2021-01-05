@@ -4,7 +4,7 @@
     $errorClass = '';   # The class to use on error.   //TODO: decide classname and update scss.
     $successClass = ''; # The class to use on success. //TODO: decide classname and update scss.
 
-    $emailRecipient = 'jason@redsundigitalkc.com'; # Who receives the contact request.
+    $emailRecipient = 'info@redsundigitalkc.com'; # Who receives the contact request.
 
     $name = '';
     $email = '';
@@ -44,11 +44,14 @@
                     # Email success
                     $msg = 'Your contact request has been sent.';
                     $msgClass = $successClass;
+                    echo "<script>alert('$msg');</script>"
                 } else {
                     # Email failed
                     $msg = 'Your contact request was not sent.';
                     $msgClass = $errorClass;
+                    echo "<script>alert('$msg');</script>"
                 }
+
             }
         } else {
             # A required field was not entered.
