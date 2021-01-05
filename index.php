@@ -4,7 +4,7 @@
     $errorClass = '';   # The class to use on error.   //TODO: decide classname and update scss.
     $successClass = ''; # The class to use on success. //TODO: decide classname and update scss.
 
-    $emailRecipient = 'jason@redsundigitalkc.com'; # Who receives the contact request.
+    $emailRecipient = 'info@redsundigitalkc.com'; # Who receives the contact request.
 
     # On submit:
     if(filter_has_var(INPUT_POST, 'submit')) {
@@ -290,9 +290,7 @@
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
       <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
-      <textarea id="message" name="message" placeholder="Message" rows="3" required>
-        <?php echo isset($_POST['message']) ? $message : ''; ?>
-      </textarea>
+      <textarea id="message" name="message" placeholder="Message" rows="3" required><?php echo isset($_POST['message']) ? $message : ''; ?></textarea>
       <button type="submit" id="contact-send" class="call-to-action">Send</button>
     </form>
   </section>
