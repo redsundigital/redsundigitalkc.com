@@ -80,10 +80,10 @@
 
   <!-- Nav Screen -->
   <div id="navscreen">
-    <a href="#home" data-glitch="Home" class="navscreen-link">Home</a></li>
-    <a href="#services" data-glitch="Services" class="navscreen-link">Services</a></li>
-    <a href="#portfolio" data-glitch="Our Work" class="navscreen-link">Our Work</a></li>
-    <a href="#about" data-glitch="About Us" class="navscreen-link">About Us</a></li>
+    <a href="index.html#home" data-glitch="Home" class="navscreen-link">Home</a></li>
+    <a href="index.html#services" data-glitch="Services" class="navscreen-link">Services</a></li>
+    <a href="index.html#portfolio" data-glitch="Our Work" class="navscreen-link">Our Work</a></li>
+    <a href="index.html#about" data-glitch="About Us" class="navscreen-link">About Us</a></li>
     <a href="contact.php" data-glitch="Contact" class="navscreen-link">Contact</a></li>
     <div class="socials">
       <!-- <a href="" class="navscreen-link"><i class="fa fa-facebook"></i></a>
