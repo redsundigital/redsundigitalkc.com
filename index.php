@@ -6,6 +6,10 @@
 
     $emailRecipient = 'info@redsundigitalkc.com'; # Who receives the contact request.
 
+    $name = '';
+    $email = '';
+    $message = '';
+
     # On submit:
     if(filter_has_var(INPUT_POST, 'submit')) {
         # Get form data
@@ -283,10 +287,10 @@
       <h1>Contact</h1>
       <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
     </div>
-    <?php if($msg != ''): ?>
+      <?php if($msg != ''): ?>
         <!-- TODO: position and style this element. -->
         <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
-        <?php endif; ?>
+      <?php endif; ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
       <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
