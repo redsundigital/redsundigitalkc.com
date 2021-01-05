@@ -289,11 +289,12 @@
   <section id="contact">
     <div class="contact-text">
       <h1>Contact</h1>
-      <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
-    </div>
       <?php if($msg != ''): ?>
-        <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+        <h3 class="<?php echo $msgClass; ?>"><?php echo $msg; ?></h3>
+      <?php else: ?>
+        <h3>Shoot us a message and we'll get back to you as quickly as possible.</h3>
       <?php endif; ?>
+    </div>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
       <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
