@@ -4,7 +4,7 @@
     $errorClass = '';   # The class to use on error.   //TODO: decide classname and update scss.
     $successClass = ''; # The class to use on success. //TODO: decide classname and update scss.
 
-    $emailRecipient = 'info@redsundigitalkc.com'; # Who receives the contact request.
+    $emailRecipient = 'jason@redsundigitalkc.com'; # Who receives the contact request.
 
     $name = '';
     $email = '';
@@ -289,7 +289,7 @@
     </div>
       <?php if($msg != ''): ?>
         <!-- TODO: position and style this element. -->
-        <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+        <div class="alert <?php echo $msgClass; ?>" style="color: white;"><?php echo $msg; ?></div>
       <?php endif; ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
