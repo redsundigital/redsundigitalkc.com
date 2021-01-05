@@ -1,10 +1,10 @@
 <?php   
     # Error reporting
-    error_reporting(-1);
-    ini_set('display_errors', 'On');
-    set_error_handler("var_dump");
-    ini_set("mail.log", "/tmp/mail.log");
-    ini_set("mail.add_x_header", TRUE);
+    // error_reporting(-1);
+    // ini_set('display_errors', 'On');
+    // set_error_handler("var_dump");
+    // ini_set("mail.log", "/tmp/mail.log");
+    // ini_set("mail.add_x_header", TRUE);
 
     $msg = '';          # The message to show when the form has been submitted.
     $msgClass = '';     # The class to apply to the message element on submit.
@@ -12,10 +12,6 @@
     $successClass = ''; # The class to use on success. //TODO: decide classname and update scss.
 
     $emailRecipient = 'info@redsundigitalkc.com'; # Who receives the contact request.
-
-    $name = '';
-    $email = '';
-    $message = '';
 
     # On submit:
     if(filter_has_var(INPUT_POST, 'submit')) {
@@ -28,14 +24,14 @@
         if(!empty($email) && !empty($name) && !empty($message)) {            
 
             # Validate email:
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
                 # Email entered is INVALID.
                 $msg = 'Invalid email.';
                 $msgClass = $errorClass;
             } else {
                 # Email entered is VALID.
-                $toEmail = $emailRecipient;
-                $subject = 'Contact Request From '.$name;
+                $toEmail = 'jason@redsundigitalkc.com';
+                $subject = 'Contact Request From ' . $name;
                 $body = 
                     '<h2>Contact Request</h2>
                     <h4>Name</h4> <p>'.$name.'</p>
@@ -44,21 +40,17 @@
 
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-Type:text/html;charset=UTF-8;"."\r\n";
-                #$headers .= 'From: '.$name.'<'.$email.'>'."\r\n";
-                $headers .= 'From: '.$emailRecipient."\r\n";
+                $headers .= "From: ".$name."<".$email.">"."\r\n";
 
                 # Send the email:
-                $mailStatus = mail($toEmail, $subject, $body, $headers);
-                if ($mailStatus) {
-                  echo '<p> Success </p>';
+                if (mail($toEmail, $subject, $body, $headers)) {
                   # Email success
-                  #$msg = 'Your contact request has been sent.';
-                  #$msgClass = $successClass;
+                  $msg = 'Your contact request has been sent.';
+                  $msgClass = $successClass;
                 } else {
-                  echo '<p> Failed </p>';
-                    # Email failed
-                    #$msg = 'Your contact request was not sent.';
-                    #$msgClass = $errorClass;
+                  # Email failed
+                  $msg = 'Your contact request was not sent.';
+                  $msgClass = $errorClass;
                 }
             }
         } else {
@@ -306,7 +298,7 @@
       <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
       <input type="email" name="email" id="email" placeholder="Email" required pattern=".+@.+\..+" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
       <textarea id="message" name="message" placeholder="Message" rows="3" required><?php echo isset($_POST['message']) ? $message : ''; ?></textarea>
-      <button type="submit" id="contact-send" class="call-to-action">Send</button>
+      <button type="submit" class="call-to-action">Send</button>
     </form>
   </section>
 
