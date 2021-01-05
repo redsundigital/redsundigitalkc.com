@@ -1,10 +1,10 @@
 <?php   
     # Error reporting
-    // error_reporting(-1);
-    // ini_set('display_errors', 'On');
-    // set_error_handler("var_dump");
-    // ini_set("mail.log", "/tmp/mail.log");
-    // ini_set("mail.add_x_header", TRUE);
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
+    set_error_handler("var_dump");
+    ini_set("mail.log", "/tmp/mail.log");
+    ini_set("mail.add_x_header", TRUE);
 
     $msg = '';          # The message to show when the form has been submitted.
     $msgClass = '';     # The class to apply to the message element on submit.
@@ -30,7 +30,7 @@
                 $msgClass = $errorClass;
             } else {
                 # Email entered is VALID.
-                $toEmail = 'jason@redsundigitalkc.com';
+                $toEmail = $emailRecipient;
                 $subject = 'Contact Request From ' . $name;
                 $body = 
                     '<h2>Contact Request</h2>
@@ -40,7 +40,8 @@
 
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-Type:text/html;charset=UTF-8;"."\r\n";
-                $headers .= "From: ".$name."<".$email.">"."\r\n";
+                #$headers .= "From: ".$name."<".$email.">"."\r\n";
+                $headers .= "From: ". $emailRecipient ."\r\n";
 
                 # Send the email:
                 if (mail($toEmail, $subject, $body, $headers)) {
