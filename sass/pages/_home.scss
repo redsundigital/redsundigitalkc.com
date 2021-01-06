@@ -59,7 +59,7 @@
       }
 
       @include media(tablet) {
-        font-size: 10em;
+        font-size: 8em;
       }
 
       @include media(desktop) {
@@ -84,9 +84,7 @@
       text-align: left;
       opacity: 1;
       transform: skew(-10deg);
-      filter: drop-shadow(
-          3px 3px 6px transparentize($color: $light, $amount: 0.5)
-        )
+      filter: drop-shadow(3px 3px 6px transparentize($color: $light, $amount: 0.5))
         blur($filterBlur);
 
       @include media(mobile) {
@@ -97,7 +95,7 @@
       }
 
       @include media(tablet) {
-        font-size: 7em;
+        font-size: 6em;
       }
 
       @include media(desktop) {

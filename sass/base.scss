@@ -98,3 +98,9 @@ h1 {
 .hidden {
   display: none !important;
 }
+
+.contact-container {
+  @extend .flex-center;
+  width: 100%;
+  padding: 3em;
+}
