@@ -1,5 +1,5 @@
 const CONFIG = {
-  url: 'http://127.0.0.1:3001',
+  url: 'https://red-sun-reserve.herokuapp.com',
   api: '/api/v1',
   organizationId: '60064ef9778cfb0d9c8bc5e5',
   eventId: '60069a6d16e2125b78dce923',
