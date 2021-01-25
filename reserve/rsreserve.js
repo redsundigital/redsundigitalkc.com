@@ -1,8 +1,8 @@
 const CONFIG = {
   url: 'https://red-sun-reserve.herokuapp.com',
   api: '/api/v1',
-  organizationId: '60064ef9778cfb0d9c8bc5e5',
-  eventId: '60069a6d16e2125b78dce923',
+  organizationId: '600eef926e342e0021a53154',
+  eventId: '600eefe96e342e0021a53155',
 };
 
 const STATE = {
