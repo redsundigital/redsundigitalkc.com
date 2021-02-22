@@ -24,7 +24,7 @@ reservationForm.addEventListener('submit', handleFormSubmit);
  * Configuration options.
  */
 const config = {
-  baseUrl: 'http://www.redsunreserve.com',
+  baseUrl: 'https://rs-reserve.herokuapp.com/',
   userId: '60336fc517e228331c317a34',
   dateFormat: {
     weekday: 'short',
