@@ -24,8 +24,8 @@ reservationForm.addEventListener('submit', handleFormSubmit);
  * Configuration options.
  */
 const config = {
-  baseUrl: 'http://127.0.0.1:3001',
-  userId: '602afc028a80022a7088c72f',
+  baseUrl: 'http://www.redsunreserve.com',
+  userId: '60336fc517e228331c317a34',
   dateFormat: {
     weekday: 'short',
     day: 'numeric',
