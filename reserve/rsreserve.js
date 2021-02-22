@@ -20,6 +20,9 @@ eventsSelect.addEventListener('change', handleEventSelected);
 eventDatesSelect.addEventListener('change', handleEventDateSelected);
 reservationForm.addEventListener('submit', handleFormSubmit);
 
+
+// TODO: free events show as $/seat on demo
+
 /**
  * Configuration options.
  */
@@ -260,7 +263,7 @@ function handleEventSelected(e) {
   eventEnd.innerHTML = formatDate(event.date.end);
 
   // Event Recurrences
-  if (event.recurrences.length) {
+  if (event.recurrences) {
     // Show : has recurrences
     eventDatesSelectContainer.style.display = 'flex';
     setEventDatesSelect(event.recurrences);
@@ -270,6 +273,7 @@ function handleEventSelected(e) {
   }
 
   // Event Price
+  console.log(event.price.value);
   eventPrice.innerHTML = event.price.value;
 }
 
