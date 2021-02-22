@@ -273,7 +273,6 @@ function handleEventSelected(e) {
   }
 
   // Event Price
-  console.log(event.price.value);
   eventPrice.innerHTML = event.price.value;
 }
 
