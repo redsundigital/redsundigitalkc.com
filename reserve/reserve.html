@@ -116,38 +116,42 @@
 
                 <h1 class="w3-center">Reservations</h1><br>
 
+
                 <div id="selects">
                     <div style="display: flex; align-items: center">
                         <span style="margin-right: 16px; flex: 0.5;">Select Event</span>
                         <select id="events-picker" name="events-picker" style="padding: 4px; flex: 1;">
-                            <option value="0">Select</option>
+                            <option value="" disabled>Select</option>
                         </select>
                     </div>
                     <br>
-                    <div id="event-dates-container" style="display: none; align-items: center">
-                        <span style="margin-right: 16px; flex: 0.5;">Select Date</span>
-                        <select id="event-dates" name="event-dates" style="padding: 4px; flex: 1;"></select>
-                    </div>
                 </div>
 
 
                 <div id="form-container" style="display: none">
-                    <hr>
-                    <h3 id="event-name" class="w3-center"></h3>
-
-                    <div style="display: flex; align-items: center; justify-content: center;">
-                        <p id="event-start" class="w3-center"></p>
-                        <span style="margin: 0 16px;"> - </span>
-                        <p id="event-end" class="w3-center"></p>
-                    </div>
-
-                    <p id="event-description"></p>
-                    <h4 style="text-align: center;">
-                        $<span id="event-price"></span>/seat
-                    </h4>
-                    <hr>
-
                     <form id="reservation-form">
+
+                        <hr>
+                        <h3 id="event-name" class="w3-center"></h3>
+
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <p id="event-start" class="w3-center"></p>
+                            <span style="margin: 0 16px;"> - </span>
+                            <p id="event-end" class="w3-center"></p>
+                        </div>
+
+                        <p id="event-description"></p>
+                        <h4 style="text-align: center;">
+                            $<span id="event-price"></span>/seat
+                        </h4>
+                        <hr>
+
+                        <div id="event-dates-container" style="display: none; align-items: center">
+                            <span style="margin-right: 16px; flex: 0.5;">Select Date</span>
+                            <select id="event-dates" name="event-dates" style="padding: 4px; flex: 1;"
+                                required></select>
+                        </div>
+
                         <p><input class="w3-input w3-padding-16" type="text" placeholder="First name" required
                                 name="firstname"></p>
                         <p><input class="w3-input w3-padding-16" type="text" placeholder="Last name" required

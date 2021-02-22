@@ -126,6 +126,8 @@ function setEventsSelect(events) {
 function setEventDatesSelect(dates) {
   // Clear options, add placeholder
   const placeholder = createOption('', 'Select Date');
+  placeholder.setAttribute('disabled', true);
+  placeholder.setAttribute('selected', true);
   eventDatesSelect.innerHTML = '';
   eventDatesSelect.appendChild(placeholder);
 
