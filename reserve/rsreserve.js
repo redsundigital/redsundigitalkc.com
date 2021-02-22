@@ -1,155 +1,371 @@
-const CONFIG = {
-  url: 'https://red-sun-reserve.herokuapp.com',
-  api: '/api/v1',
-  organizationId: '600eef926e342e0021a53154',
-  eventId: '600eefe96e342e0021a53155',
-};
-
-const STATE = {
-  organization: {},
-  setOrganization(newOrganization) {
-    STATE.organization = newOrganization;
-    STATE.onOrganizationChange();
-  },
-  onOrganizationChange() {
-    // nothing yet
-  },
-  event: {},
-  setEvent(newEvent) {
-    STATE.event = newEvent;
-    STATE.onEventChange();
-  },
-  onEventChange() {
-    const { name, startDate, endDate, reservationOptions } = STATE.event;
-    UI.setEventName(name);
-    UI.setEventDateRange(startDate, endDate);
-    UI.setEventPrice(reservationOptions.price.value, '$');
-  },
-  getEventPrice() {
-    if (!STATE.event) return null;
-
-    const price = STATE.event.reservationOptions.price.value;
-    return price;
-  },
-  reservations: [],
-  setReservations(reservations) {
-    STATE.reservations = reservations;
-    STATE.onReservationsChange();
-  },
-  onReservationsChange() {
-    // nothing yet
-    console.log(STATE.reservations);
-  },
-};
-
-const UI = {
-  setEventName(name) {
-    document.getElementById('event-name').innerHTML = name;
-  },
-  setEventDateRange(startDate, endDate) {
-    document.getElementById('event-start').innerHTML = new Date(startDate).toUTCString();
-    document.getElementById('event-end').innerHTML = new Date(endDate).toUTCString();
-  },
-  setEventPrice(price) {
-    document.getElementById('event-price').innerHTML = price;
-  },
-  setReservationResult(result) {
-    document.getElementById('reservation-result').innerHTML = result;
-  },
-};
-
-const API = {
-  getEvent() {
-    const url = `${CONFIG.url}${CONFIG.api}/events/${CONFIG.eventId}`;
-    utils.get(url).then(STATE.setEvent).catch(utils.handleFetchError);
-  },
-  getOrganization() {
-    const url = `${CONFIG.url}${CONFIG.api}/organizations/${CONFIG.organizationId}`;
-    utils.get(url).then(STATE.setOrganization).catch(utils.handleFetchError);
-  },
-  async makeReservation(reservation) {
-    const url = `${CONFIG.url}/reserve`;
-    const response = await utils.post(url, reservation);
-    return response;
-  },
-  async getEventAvailability() {
-    const url = `${CONFIG.url}/reserve/availability/${CONFIG.eventId}`;
-    return utils.get(url);
-  },
-};
-
-const utils = {
-  async get(url = '') {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Fetch request failed: ' + url);
-    }
-    return response.json();
-  },
-  async post(url = '', data = {}) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: JSON.stringify(data),
-    });
-
-    return response.json();
-  },
-  handleFetchError(error) {
-    return console.error('Fetch error:', error);
-    // TODO: better error handling...
-  },
-  fromInputName(name) {
-    return document.querySelector('[name=' + name + ']').value;
-  },
-};
-
-// =====================================================================
-
-// Reservation Form: onSubmit
+// Elements
+const formContainer = document.getElementById('form-container');
+const form = document.getElementById('reservation-form');
+const eventsSelect = document.getElementById('events-picker');
+const eventName = document.getElementById('event-name');
+const eventDescription = document.getElementById('event-description');
+const eventImage = document.getElementById('event-img');
+const eventStart = document.getElementById('event-start');
+const eventEnd = document.getElementById('event-end');
+const eventDatesSelect = document.getElementById('event-dates');
+const eventDatesSelectContainer = document.getElementById('event-dates-container');
+const eventPrice = document.getElementById('event-price');
 const reservationForm = document.getElementById('reservation-form');
-reservationForm.addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const { fromInputName } = utils;
+const reservationResult = document.getElementById('reservation-result');
+const submitBtn = document.getElementById('make-reservation');
+const selectsContainer = document.getElementById('selects');
 
-  const reservation = {
-    organization_id: CONFIG.organizationId,
-    event_id: CONFIG.eventId,
-    reservee: {
-      name: fromInputName('name'),
-      email: fromInputName('email'),
-      phone: fromInputName('phone'),
+// Listeners
+eventsSelect.addEventListener('change', handleEventSelected);
+eventDatesSelect.addEventListener('change', handleEventDateSelected);
+reservationForm.addEventListener('submit', handleFormSubmit);
+
+/**
+ * Configuration options.
+ */
+const config = {
+  baseUrl: 'http://127.0.0.1:3001',
+  userId: '602afc028a80022a7088c72f',
+  dateFormat: {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  },
+  dateFormatWithTime: {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  },
+};
+
+/**
+ * Global state.
+ */
+const state = {
+  events: [],
+  selectedEvent: {},
+  selectedDate: '',
+  reservationsMade: false,
+};
+
+// Main
+(async function () {
+  state.events = await getEvents();
+  setEventsSelect(state.events);
+})();
+
+//======================
+// UTILS
+//======================
+
+/**
+ * Returns a single HTML element its name attribute.
+ *
+ * @param {*} elementName The name of the element to select.
+ */
+function fromInputName(elementName) {
+  return document.querySelector('[name=' + elementName + ']').value;
+}
+
+/**
+ * Takes a date and returns a formatted version of it.
+ * Uses default format from the `config` object.
+ *
+ * @param {*} date The date to be formatted.
+ * @param {Object} format The format to use.
+ */
+function formatDate(date, format = config.dateFormatWithTime) {
+  return new Date(date).toLocaleString('en-US', format);
+}
+
+/**
+ * Returns an option element.
+ *
+ * @param {*} value
+ * @param {*} text What the user sees.
+ */
+function createOption(value, text) {
+  const option = document.createElement('option');
+  option.value = value;
+  option.innerHTML = text;
+  return option;
+}
+
+//======================
+// UI
+//======================
+
+/**
+ * Adds items to the events select.
+ *
+ * @param {Array} events
+ */
+function setEventsSelect(events) {
+  // Add event options
+  events.forEach(function (event) {
+    const option = createOption(event._id, event.name);
+    eventsSelect.appendChild(option);
+  });
+
+  // Select the placeholder by default
+  eventsSelect.children.item(0).setAttribute('selected', true);
+}
+
+/**
+ * Adds items to the event dates select.
+ *
+ * @param {Array} dates
+ */
+function setEventDatesSelect(dates) {
+  // Clear options, add placeholder
+  const placeholder = createOption('', 'Select Date');
+  eventDatesSelect.innerHTML = '';
+  eventDatesSelect.appendChild(placeholder);
+
+  // Add date options
+  dates.forEach(function (date) {
+    const option = createOption(date, formatDate(date, config.dateFormat));
+    eventDatesSelect.appendChild(option);
+  });
+
+  // Select the placeholder by default
+  eventDatesSelect.children.item(0).setAttribute('selected', true);
+}
+
+/**
+ * Sets the text of the reservation result element.
+ *
+ * @param {String} text The text to display to the user.
+ */
+function setReservationResultText(text) {
+  reservationResult.innerHTML = text;
+}
+
+/**
+ * Show or hide an element.
+ *
+ * @param {Boolean} show `true` to show, `false` to hide.
+ */
+function showElement(element, show) {
+  element.style.display = show ? 'block' : 'none';
+}
+
+/**
+ * Clears the form and resets the submit button and results text.
+ */
+function resetForm() {
+  form.reset();
+  submitBtn.removeAttribute('disabled');
+  submitBtn.innerHTML = 'Place reservations';
+  showElement(form, true);
+  showElement(formContainer, true);
+  showElement(submitBtn, true);
+  setReservationResultText('');
+}
+
+//======================
+// API
+//======================
+
+/**
+ * GET request.
+ *
+ * @param {*} url
+ */
+async function get(url = '') {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Fetch request failed: ' + url);
+  }
+  return response.json();
+}
+
+/**
+ * POST request.
+ *
+ * @param {*} url
+ * @param {*} data
+ */
+async function post(url = '', data = {}) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
     },
-    quantity: parseInt(fromInputName('quantity')),
+    body: JSON.stringify(data),
+  });
+
+  return {
+    status: response.status,
+    statusText: response.statusText,
+    data: response.json(),
+  };
+}
+
+/**
+ * On success, returns an array of event objects.
+ * On error, returns an empty array.
+ */
+async function getEvents() {
+  try {
+    const url = config.baseUrl + '/integration/events?userId=' + config.userId;
+    const response = await get(url);
+    return response;
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+}
+
+//======================
+// EVENT HANDLERS
+//======================
+
+/**
+ * Handler called when an event is selected.
+ *
+ * @param {*} e
+ */
+function handleEventSelected(e) {
+  const event = state.events.filter(event => event._id === e.target.value)[0];
+  if (!event) return;
+
+  resetForm();
+
+  state.selectedEvent = event;
+
+  // Reset date select value
+  state.selectedDate = '';
+
+  // Event Name
+  eventName.innerHTML = event.name;
+
+  // Event Description
+  eventDescription.innerHTML = event.description;
+
+  // Event Image
+  if (!event.imageUrl) {
+    eventImage.style.visibility = 'hidden';
+  } else {
+    eventImage.style.visibility = 'visible';
+    eventImage.setAttribute('src', event.imageUrl);
+  }
+
+  // Event Start|End Dates
+  eventStart.innerHTML = formatDate(event.date.start);
+  eventEnd.innerHTML = formatDate(event.date.end);
+
+  // Event Recurrences
+  if (event.recurrences.length) {
+    // Show : has recurrences
+    eventDatesSelectContainer.style.display = 'flex';
+    setEventDatesSelect(event.recurrences);
+  } else {
+    // Hide : is one-off event
+    eventDatesSelectContainer.style.display = 'none'; // Hide
+  }
+
+  // Event Price
+  eventPrice.innerHTML = event.price.value;
+}
+
+/**
+ * Handler called when an event date is selected.
+ *
+ * @param {*} e
+ */
+function handleEventDateSelected(e) {
+  if (!e.target.value) return;
+
+  state.selectedDate = new Date(e.target.value);
+
+  // Get event start|end dates
+  const event = state.selectedEvent;
+  const startDate = new Date(event.date.start);
+  const endDate = new Date(event.date.end);
+
+  // Start date with selectedDate year|month|date and event hours|minutes
+  const selectedStart = new Date(
+    state.selectedDate.getFullYear(),
+    state.selectedDate.getMonth(),
+    state.selectedDate.getDate(),
+    startDate.getHours(),
+    startDate.getMinutes()
+  );
+
+  // End date with selectedDate year|month|date and event hours|minutes
+  const selectedEnd = new Date(
+    state.selectedDate.getFullYear(),
+    state.selectedDate.getMonth(),
+    state.selectedDate.getDate(),
+    endDate.getHours(),
+    endDate.getMinutes()
+  );
+
+  // Attach the start time to selectedDate
+  state.selectedDate = selectedStart;
+
+  // Update start|end text
+  eventStart.innerHTML = formatDate(selectedStart);
+  eventEnd.innerHTML = formatDate(selectedEnd);
+}
+
+/**
+ * Handler called when the reservation form is submitted.
+ *
+ * @param {*} e
+ */
+async function handleFormSubmit(e) {
+  e.preventDefault();
+
+  submitBtn.innerHTML = 'Placing...';
+  submitBtn.setAttribute('disabled', true);
+
+  const event = state.selectedEvent;
+
+  // Set the appropriate eventDate (recurring vs one-off):
+  if (event.options.recurring.isRecurring) {
+    // Recurring: use the event-dates select value
+    eventDate = state.selectedDate;
+  } else {
+    // One-off: use the event start date
+    eventDate = event.date.start;
+  }
+
+  // Build the reservation to insert
+  const newReservation = {
+    eventId: event._id,
+    name: {
+      first: fromInputName('firstname'),
+      last: fromInputName('lastname'),
+    },
+    email: fromInputName('email'),
+    phone: fromInputName('phone'),
+    qty: parseInt(fromInputName('quantity')),
     purchasePrice: {
-      value: STATE.getEventPrice(),
+      value: event.price.value,
     },
+    eventDate,
   };
 
-  API.makeReservation(reservation)
-    .then((response) => {
-      console.log(response);
-      if (response.event_id) {
-        UI.setReservationResult('Thank you, your reservations have been made.');
-      } else {
-        UI.setReservationResult(response.message);
-      }
-    })
-    .catch(console.error);
-});
-
-// =====================================================================
-
-(async function main() {
-  await API.getEvent();
-  const reservations = await API.getEventAvailability();
-  console.log(reservations);
-  if (!reservations.available) {
-    document.getElementById('event-price').parentNode.style.display = 'none';
-    document.getElementById('make-reservation').style.display = 'none';
-    UI.setReservationResult('Sorry, there are no available reservations.');
+  try {
+    const url = config.baseUrl + '/reservations';
+    const response = await post(url, newReservation);
+    if (response.status === 201) {
+      setReservationResultText('Reservations placed. Check your email for verification.');
+      showElement(submitBtn, false);
+      showElement(form, false);
+    }
+  } catch (e) {
+    console.error(e);
+    setReservationResultText(
+      'Your reservations could not be placed right now. Please try again.'
+    );
   }
-})();
+
+  return;
+}
