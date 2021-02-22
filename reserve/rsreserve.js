@@ -24,7 +24,7 @@ reservationForm.addEventListener('submit', handleFormSubmit);
  * Configuration options.
  */
 const config = {
-  baseUrl: 'https://rs-reserve.herokuapp.com/',
+  baseUrl: 'https://rs-reserve.herokuapp.com',
   userId: '60336fc517e228331c317a34',
   dateFormat: {
     weekday: 'short',
@@ -216,7 +216,7 @@ async function getEvents() {
     const response = await get(url);
     return response;
   } catch (e) {
-    console.error(e);
+    console.error(e.response);
     return [];
   }
 }
