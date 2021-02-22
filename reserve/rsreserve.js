@@ -268,10 +268,14 @@ function handleEventSelected(e) {
   if (event.recurrences) {
     // Show : has recurrences
     eventDatesSelectContainer.style.display = 'flex';
+    eventDatesSelect.setAttribute('required', true);
+    eventDatesSelect.setAttribute('disabled', false);
     setEventDatesSelect(event.recurrences);
   } else {
     // Hide : is one-off event
     eventDatesSelectContainer.style.display = 'none'; // Hide
+    eventDatesSelect.setAttribute('required', false);
+    eventDatesSelect.setAttribute('disabled', true);
   }
 
   // Event Price
