@@ -269,7 +269,7 @@ function handleEventSelected(e) {
     // Show : has recurrences
     eventDatesSelectContainer.style.display = 'flex';
     eventDatesSelect.setAttribute('required', true);
-    eventDatesSelect.setAttribute('disabled', false);
+    eventDatesSelect.removeAttribute('disabled');
     setEventDatesSelect(event.recurrences);
   } else {
     // Hide : is one-off event
